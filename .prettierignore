@@ -1,0 +1,4 @@
+*.spec.tsx
+*.spec.tsx.snap
+src/generated/
+.next/

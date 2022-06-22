@@ -1,0 +1,127 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/inter-ui/3.18.0/inter.css");
+@import "tailwindcss/base";
+@import "tailwindcss/utilities";
+@import "./loading.css";
+
+h1,
+h2,
+h3,
+h4,
+p {
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+p.bold {
+    font-weight: 700;
+}
+
+:root {
+    font-size: 14px;
+    --color-accent: #f73131;
+    --color-accent-hover: #fd6868;
+    --color-accent-disabled: #f5bfbf;
+    --screen-height-reduction: 0px;
+    --color-blue: #0d6efd;
+    --color-indigo: #6610f2;
+    --color-purple: #6f42c1;
+    --color-pink: #d63384;
+    --color-red: #dc3545;
+    --color-orange: #fd7e14;
+    --color-yellow: #ffc107;
+    --color-green: #198754;
+    --color-teal: #20c997;
+    --color-cyan: #0dcaf0;
+    --color-white: #fff;
+    --color-gray: #9ca3af;
+    --color-gray-dark: #343a40;
+    --color-primary: #0d6efd;
+    --color-success: #198754;
+    --color-info: #0dcaf0;
+    --color-warning: #ffc107;
+    --color-danger: #dc3545;
+    --color-light: #f8f9fa;
+    --color-dark: #212529;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+h4 {
+    font-size: 1.4rem;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+p.small {
+    font-size: 0.85rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* ::-webkit-scrollbar {
+    overflow: overlay;
+    width: 8px;
+}
+@media only screen and (max-width: 800px) {
+    ::-webkit-scrollbar {
+        all: unset;
+        width: 2px;
+    }
+}
+
+::-webkit-scrollbar-track {
+    display: initial;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-gray);
+} */
+
+.scrollremove::-webkit-scrollbar {
+    height: 0px;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    position: fixed;
+}
+
+#root {
+    overflow-y: auto;
+}
+
+::-webkit-resizer {
+    background: var(--color-accent);
+}
+
+.h-screen {
+    height: calc(100vh - var(--screen-height-reduction));
+}
+
+button:focus {
+    outline: none;
+}
