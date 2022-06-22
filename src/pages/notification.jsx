@@ -9,8 +9,8 @@ export default function Notification() {
 
     return (
         <MiddlePanel>
-            <div class="font-medium text-md text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
-                <ul class="flex w-full -mb-px">
+            <div className="font-medium text-md text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+                <ul className="flex w-full -mb-px">
                     {Tabs.map((tab, index) => (
                         <li
                             key={index}

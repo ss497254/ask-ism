@@ -38,7 +38,7 @@ export const SearchBarController = ({}) => {
         <div className="relative w-full z-10 flex flex-col">
             <SearchBar
                 // {...getInputProps()}
-                value={rawText}
+                // value={rawText}
                 placeholder={
                     isOverflowing
                         ? "Search"

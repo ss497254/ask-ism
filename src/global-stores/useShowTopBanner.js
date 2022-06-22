@@ -4,7 +4,7 @@ import { combine } from "zustand/middleware";
 export const useShowTopBanner = create(
     combine(
         {
-            showTopBanner: false,
+            showTopBanner: true,
         },
         (set) => ({
             set,

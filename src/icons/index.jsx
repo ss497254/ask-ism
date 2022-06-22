@@ -4,6 +4,7 @@ export { default as LgLogo } from "./LgLogo";
 export { default as LinkIcon } from "./Link";
 export { default as LogoIcon } from "./LogoIcon";
 export { default as OutlineGlobe } from "./OutlineGlobe";
+export { default as OutlineLike } from "./OutlineLike";
 export { default as ShareIcon } from "./Share";
 export { default as Smiley } from "./Smiley";
 export { default as SolidBookmark } from "./SolidBookmark";

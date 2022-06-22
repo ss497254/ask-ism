@@ -6,8 +6,8 @@ export const ProfileHeaderWrapper = ({ children, coverUrl, ...props }) => {
     return (
         <div
             className={
-                (screenType === "mobile" ? "" : "rounded-8 my-3") +
-                " bg-gray-100 dark:bg-dark-800 relative"
+                (screenType === "mobile" ? "" : "rounded-8") +
+                " bg-stone-100 dark:bg-dark-800 relative"
             }
             {...props}
         >

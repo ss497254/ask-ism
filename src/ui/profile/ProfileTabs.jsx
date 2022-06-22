@@ -10,6 +10,7 @@ export const ProfileTabs = ({
     isCurrentUser,
     tabs = {
         about: true,
+        questions: true,
         likes: true,
         answers: true,
         recorded: false,
@@ -17,7 +18,7 @@ export const ProfileTabs = ({
     aboutTags = [],
     ...props
 }) => {
-    const [activeTab, setActiveTab] = useState("About");
+    const [activeTab, setActiveTab] = useState("about");
     const conn = useConn();
     return (
         <>
@@ -28,13 +29,24 @@ export const ProfileTabs = ({
                 <button
                     className={`py-1 text-base font-semibold border-b-2 transition hover:border-accent focus:outline-no-chrome
                ${
-                   activeTab === "About"
+                   activeTab === "about"
                        ? `border-accent text-accent`
                        : "border-gray-200 dark:border-gray-700"
-               } ${!tabs.about ? "hidden" : ""}`}
-                    onClick={() => setActiveTab("About")}
+               }`}
+                    onClick={() => setActiveTab("about")}
                 >
                     {"About"}
+                </button>
+                <button
+                    className={`py-1 text-base font-semibold border-b-2 transition hover:border-accent focus:outline-no-chrome
+               ${
+                   activeTab === "questions"
+                       ? `border-accent text-accent`
+                       : "border-gray-200 dark:border-gray-700"
+               }`}
+                    onClick={() => setActiveTab("questions")}
+                >
+                    {"Questions"}
                 </button>
                 <button
                     className={`py-1 text-base font-semibold border-b-2 transition hover:border-accent focus:outline-no-chrome
@@ -42,7 +54,7 @@ export const ProfileTabs = ({
                    activeTab === "answers"
                        ? `border-accent text-accent`
                        : "border-gray-200 dark:border-gray-700"
-               } ${!tabs.answers ? "hidden" : ""}`}
+               }`}
                     onClick={() => setActiveTab("answers")}
                 >
                     {"Answers"}
@@ -53,32 +65,22 @@ export const ProfileTabs = ({
                    activeTab === "likes"
                        ? `border-accent text-accent`
                        : "border-gray-200 dark:border-gray-700"
-               } ${!tabs.likes ? "hidden" : ""}`}
+               }`}
                     onClick={() => setActiveTab("likes")}
                 >
                     {"Likes"}
-                </button>
-                <button
-                    className={`py-1 text-base font-semibold border-b-2 transition hover:border-accent focus:outline-no-chrome
-               ${
-                   activeTab === "settings"
-                       ? `border-accent text-accent`
-                       : "border-gray-200 dark:border-gray-700"
-               } ${!isCurrentUser ? "hidden" : ""}`}
-                    onClick={() => setActiveTab("settings")}
-                >
-                    {"settings"}
                 </button>
             </div>
 
             <div>
                 <ProfileAbout
-                    className={activeTab !== "About" ? "hidden" : ""}
+                    className={activeTab !== "about" ? "hidden" : ""}
                     username={user.username}
                     followers={user.numFollowers}
                     following={user.numFollowing}
                     description={user.bio}
                     tags={aboutTags}
+                    website={user.website}
                 />
 
                 {/* <ProfileScheduled
@@ -86,7 +88,7 @@ export const ProfileTabs = ({
                     className={activeTab !== "Scheduled" ? "hidden" : ""}
                 /> */}
                 <ProfileAdmin
-                    className={activeTab !== "admin" ? "hidden" : ""}
+                    className={activeTab !== "likes" ? "hidden" : ""}
                     user={user}
                 />
             </div>

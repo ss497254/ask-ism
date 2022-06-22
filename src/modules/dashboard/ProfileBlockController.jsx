@@ -122,8 +122,8 @@ export const ProfileBlockController = ({}) => {
                                     speakers: ["saurabh", "sahil"],
                                     avatars: [
                                         "/img/ss497254.png",
-                                        "/img/male-1.png",
-                                        "/img/male-2.png",
+                                        "/img/male-1a.jpg",
+                                        "/img/male-1b.jpg",
                                     ],
                                 },
                             },
@@ -134,8 +134,8 @@ export const ProfileBlockController = ({}) => {
                                     speakers: ["saurabh", "sahil", "sameer"],
                                     avatars: [
                                         "/img/ss497254.png",
-                                        "/img/male-3.png",
-                                        "/img/male-4.png",
+                                        "/img/male-1c.jpg",
+                                        "/img/female-1c.jpg",
                                     ],
                                 },
                             },
@@ -146,8 +146,8 @@ export const ProfileBlockController = ({}) => {
                                     speakers: ["saurabh", "sahil", "sameer"],
                                     avatars: [
                                         "/img/ss497254.png",
-                                        "/img/male-5.png",
-                                        "/img/male-6.png",
+                                        "/img/female-1a.jpg",
+                                        "/img/female-1b.jpg",
                                     ],
                                 },
                             },
@@ -156,11 +156,7 @@ export const ProfileBlockController = ({}) => {
                                 title: "CSE 1st year",
                                 speakersInfo: {
                                     speakers: ["saurabh", "sahil"],
-                                    avatars: [
-                                        "/img/ss497254.png",
-                                        "/img/male-7.png",
-                                        "/img/male-8.png",
-                                    ],
+                                    avatars: ["/img/ss497254.png"],
                                 },
                             },
                         ]}

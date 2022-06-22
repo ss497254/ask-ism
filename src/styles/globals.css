@@ -32,7 +32,7 @@ p.bold {
     --color-red: #dc3545;
     --color-orange: #fd7e14;
     --color-yellow: #ffc107;
-    --color-green: #198754;
+    --color-green: #13d47a;
     --color-teal: #20c997;
     --color-cyan: #0dcaf0;
     --color-white: #fff;
@@ -80,23 +80,28 @@ p.small {
     overflow: overlay;
     width: 8px;
 }
-@media only screen and (max-width: 800px) {
-    ::-webkit-scrollbar {
-        all: unset;
-        width: 2px;
-    }
-}
 
 ::-webkit-scrollbar-track {
     display: initial;
 }
 
-::-webkit-scrollbar-thumb {
-    background-color: var(--color-gray);
-} */
+ */
+
+@media only screen and (min-width: 1200px) {
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--color-gray);
+    }
+    .dark::-webkit-scrollbar-thumb {
+        background-color: var(--color-gray-dark);
+    }
+}
 
 .scrollremove::-webkit-scrollbar {
-    height: 0px;
+    display: none;
 }
 
 html,

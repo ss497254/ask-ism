@@ -13,12 +13,12 @@ import {
     SolidUser,
 } from "../../icons";
 
-const height = 420 + 40;
+const height = 365 + 40;
 
 const Tab = ({ children, onClick }) => {
     return (
         <div
-            className="flex w-full text-lg py-3 px-4 items-center gap-4 border-b border-zinc-300 dark:border-dark-600"
+            className="flex cursor-pointer w-full text-lg h-[55px] px-4 items-center gap-4 border-b border-zinc-300 dark:border-dark-600"
             onClick={onClick}
         >
             {children}
@@ -110,9 +110,13 @@ export const AccountOverlay = ({}) => {
                     <span className="bg-gray-600 rounded-full w-6 h-1 absolute top-3 left-2/4 transform -translate-x-1/2"></span>
                 </div>
                 <div>
-                    <Tab>
+                    {/* <Tab>
                         <SolidUser width="20" height="20" />
                         Profile
+                    </Tab> */}
+                    <Tab>
+                        <SolidSettings width="20" height="20" />
+                        Settings
                     </Tab>
                     <Tab onClick={handleClickDarkMode}>
                         <SolidMoon width="20" height="20" />
@@ -133,10 +137,6 @@ export const AccountOverlay = ({}) => {
                                 <div className="w-[50px] h-[21px] bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-[29px] peer-checked:after:border-white after:content-[''] after:absolute after:top-[1.5px] after:left-[1.5px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-[18px] after:w-[18px] after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                             </label>
                         </div>
-                    </Tab>
-                    <Tab>
-                        <SolidSettings width="20" height="20" />
-                        Settings
                     </Tab>
                     <Tab>
                         <SolidHelp width="20" height="20" />

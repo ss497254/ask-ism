@@ -47,7 +47,8 @@ function Announcements({ size, className }) {
             </button>
 
             <Transition
-                className="origin-top-right z-100 absolute top-full right-0 mr-1 w-24 bg-white border-2 border-slate-300 rounded-lg shadow-lg overflow-hidden mt-1"
+                className="origin-top-right z-100 absolute top-full right-0 mr-1 w-24 bg-white dark:bg-dark-800 dark:text-cool-gray-400 border border-slate-400
+                dark:border-slate-800 rounded-lg shadow-xl overflow-hidden mt-1"
                 show={dropdownOpen}
                 enter="transition ease-out duration-200 transform"
                 enterStart="opacity-0 -translate-y-2"
@@ -61,11 +62,11 @@ function Announcements({ size, className }) {
                     onFocus={() => setDropdownOpen(true)}
                     onBlur={() => setDropdownOpen(false)}
                 >
-                    <div className="font-semibold text-gray-900 uppercase py-2.5 px-4">
+                    <div className="font-semibold dark:text-white uppercase py-2.5 px-4">
                         Announcements
                     </div>
                     <ul>
-                        <li className="border-t border-slate-200 last:border-b">
+                        <li className="border-t border-slate-200 dark:border-gray-700 last:border-b">
                             <Link
                                 className="block py-2 px-4 hover:bg-blue-100"
                                 to="#0"
@@ -73,7 +74,7 @@ function Announcements({ size, className }) {
                             >
                                 <span className="block text-base mb-2 text-justify">
                                     📣{" "}
-                                    <span className="font-medium text-slate-800">
+                                    <span className="font-medium text-slate-800 dark:text-white">
                                         Edit your information in a swipe
                                     </span>{" "}
                                     Sint occaecat cupidatat non proident, sunt
@@ -84,7 +85,7 @@ function Announcements({ size, className }) {
                                 </span>
                             </Link>
                         </li>
-                        <li className="border-t border-slate-200 last:border-b">
+                        <li className="border-t border-slate-200 dark:border-gray-700 last:border-b">
                             <Link
                                 className="block py-2 px-4 hover:bg-blue-100"
                                 to="#0"
@@ -92,7 +93,7 @@ function Announcements({ size, className }) {
                             >
                                 <span className="block text-md mb-2 text-justify">
                                     📣{" "}
-                                    <span className="font-medium text-slate-800">
+                                    <span className="font-medium text-slate-800 dark:text-white">
                                         Edit your information in a swipe
                                     </span>{" "}
                                     Sint occaecat cupidatat non proident, sunt
@@ -103,7 +104,7 @@ function Announcements({ size, className }) {
                                 </span>
                             </Link>
                         </li>
-                        <li className="border-t border-slate-200 last:border-b">
+                        <li className="border-t border-slate-200 dark:border-gray-700 last:border-b">
                             <Link
                                 className="block py-2 px-4 hover:bg-blue-100"
                                 to="#0"
@@ -111,7 +112,7 @@ function Announcements({ size, className }) {
                             >
                                 <span className="block text-md mb-2 text-justify">
                                     🚀
-                                    <span className="font-medium text-slate-800">
+                                    <span className="font-medium text-slate-800 dark:text-white">
                                         Say goodbye to paper receipts!
                                     </span>{" "}
                                     Sint occaecat cupidatat non proident, sunt

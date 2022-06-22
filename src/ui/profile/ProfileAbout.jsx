@@ -1,9 +1,11 @@
 import React from "react";
 import { SolidLink } from "../../icons";
 import { UserBadgeLg } from "./UserBadgeLg";
+import { Website } from "./UserSummaryCard";
 
 export const ProfileAbout = ({
     username,
+    website,
     followers,
     following,
     description,
@@ -16,21 +18,11 @@ export const ProfileAbout = ({
             className={`mt-2 p-4 dark:text-white rounded-8 w-full leading-8 ${className}`}
             // style={{ maxWidth: 640 }}
         >
-            <div className="font-bold text-xl pb-2">
+            <div className="font-bold text-xl">
                 {"About"} {username}
             </div>
-            <div className="flex mb-2 gap-5">
-                <div className="">
-                    <span className="font-bold">{followers}</span>
-                    <span className="ml-1.5">{"Questions"}</span>
-                </div>
-                <div className="">
-                    <span className="font-bold">{following}</span>
-                    <span className="ml-1.5">{"Answers"}</span>
-                </div>
-            </div>
+            {website && <Website website={website} />}
             <div className="flex mt-3 break-words text-left">{description}</div>
-            {/* {website && <Website website={"asdf"} />} */}
             {link && (
                 <div className="flex flex-row items-center mb-4">
                     <SolidLink className="mr-2" />

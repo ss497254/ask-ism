@@ -5,10 +5,9 @@ import { UserBadge } from "./UserBadge";
 import { SingleUser } from "../UserAvatar/SingleUser";
 import {
     SolidCompass,
-    SolidFriends,
-    SolidMessages,
+    SolidSettings,
     SolidCalendar,
-    SolidPersonAdd,
+    OutlineGlobe,
 } from "../../icons";
 // import { EditProfileModal } from "../modules/user/EditProfileModal";
 import { badge, Badges } from "./UserSummaryCard";
@@ -51,26 +50,29 @@ export const ProfileHeader = ({
     }
     return (
         <ProfileHeaderWrapper coverUrl={user.bannerUrl || "/img/ss497254.png"}>
-            <div className="flex w-full relative justify-between min-h-6 gap-4 pb-2 mb-2">
+            <div className="flex w-full relative justify-between pb-2 mb-1">
                 <SingleUser
                     size="xxl"
-                    className="-mt-[100px] flex-none bg-inherit rounded-full outline outline-accent shadow-outlineLg"
+                    className="-mt-[90px] flex-none bg-inherit rounded-full outline outline-[3px] outline-stone-100 dark:outline-dark-800 shadow-outlineLg"
                     src={pfp}
                 />
-                <div className="flex gap-2 flex-1 max-w-[150px] md:max-w-[200px]">
-                    <Button className="w-full rounded-full" btn="accent">
+                <div className="flex gap-2 h-6">
+                    <Button className="w-6 rounded-full" btn="accent" loading>
                         <SolidCompass />
                     </Button>
-                    <Button
-                        className="w-full rounded-full"
-                        btn="accent"
-                        loading
-                    >
+                    {/* <Button className="w-6 rounded-full" btn="accent">
                         <SolidCompass />
+                    </Button> */}
+                    <Button className="w-6 rounded-full" btn="accent">
+                        <a href={user.website || "#"} className="p-2">
+                            <OutlineGlobe size={18} />
+                        </a>
                     </Button>
-                    <Button className="w-full rounded-full" btn="accent">
-                        <SolidMessages />
-                    </Button>
+                    {isCurrentUser && (
+                        <Button className="w-6 rounded-full" btn="accent">
+                            <SolidSettings />
+                        </Button>
+                    )}
                 </div>
             </div>
             <div className="flex flex-col px-2">
@@ -85,6 +87,16 @@ export const ProfileHeader = ({
                             {"Follows You"}
                         </UserBadge>
                     )}
+                </div>
+                <div className="flex mt-2 gap-5">
+                    <div className="">
+                        <span className="font-bold">{user.questions || 0}</span>
+                        <span className="ml-1.5">{"Questions"}</span>
+                    </div>
+                    <div className="">
+                        <span className="font-bold">{user.answers || 0}</span>
+                        <span className="ml-1.5">{"Answers"}</span>
+                    </div>
                 </div>
                 <div className="mt-2 flex gap-2 items-center">
                     {/* <Badges badges={badges} /> */}
