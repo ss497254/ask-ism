@@ -13,13 +13,7 @@ const UserCard = ({ avatars, speakers }) => {
     );
 };
 
-export const ScheduledSpacesCard = ({
-    onClick,
-    scheduledFor,
-    speakersInfo,
-    title,
-    transition,
-}) => {
+export const SpacesCard = ({ onClick, speakersInfo, title, transition }) => {
     return (
         <div
             onClick={onClick}
@@ -35,17 +29,20 @@ export const ScheduledSpacesCard = ({
 
 export const Spaces = ({ rooms }) => {
     return (
-        <div className="w-full rounded-lg overflow-hidden flex flex-col">
-            <div className="px-4 py-2 bg-emerald-500 dark:bg-emerald-600 border-b border-gray-300 dark:border-gray-700 flex justify-between items-center">
+        <div className="w-full rounded-lg bg-emerald-500 dark:bg-emerald-600 overflow-hidden flex flex-col">
+            <div className="px-4 py-2 border-b border-gray-300 dark:border-gray-700 flex justify-between items-center">
                 <h4 className="text-white font-bold">{"Your Spaces"}</h4>
             </div>
-            <div className="flex flex-col">
+            <div
+                className="flex flex-col overflow-y-scroll scrollbar-small"
+                style={{ height: 280 }}
+            >
                 {rooms.map((room) => (
-                    <ScheduledSpacesCard transition key={room.id} {...room} />
+                    <SpacesCard transition key={room.id} {...room} />
                 ))}
             </div>
 
-            <div className="px-4 py-2 w-full text-white font-bold bg-blue-400 dark:bg-blue-600">
+            <div className="px-4 py-2 w-full text-white font-bold bg-sky-500 dark:bg-blue-600">
                 <Link to="/scheduled-rooms">{"Explore More Spaces"}</Link>
             </div>
         </div>

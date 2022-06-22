@@ -104,6 +104,10 @@ p.small {
     display: none;
 }
 
+.scrollbar-small::-webkit-scrollbar {
+    width: 4px;
+}
+
 html,
 body,
 #root {

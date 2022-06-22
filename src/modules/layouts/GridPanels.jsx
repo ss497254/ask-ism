@@ -46,7 +46,7 @@ const Tabs = ({ tabTitle, icon, onClick, isTablet, to }) => {
             <Icon icon={icon} />
             {!isTablet && (
                 <div className="flex ml-3 flex-col justify-center my-auto">
-                    <h5 className="font-bold text-lg">{tabTitle}</h5>
+                    <h5 className="font-semibold text-lg">{tabTitle}</h5>
                 </div>
             )}
         </Link>

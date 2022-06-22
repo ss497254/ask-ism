@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ProfileHeaderWrapper } from "./ProfileHeaderWrapper";
 import { Button } from "../components/Button";
-import { UserBadge } from "./UserBadge";
+import { Badge } from "./Badge";
 import { SingleUser } from "../UserAvatar/SingleUser";
 import {
     SolidCompass,
@@ -64,7 +64,11 @@ export const ProfileHeader = ({
                         <SolidCompass />
                     </Button> */}
                     <Button className="w-6 rounded-full" btn="accent">
-                        <a href={user.website || "#"} className="p-2">
+                        <a
+                            href={user.website || "#"}
+                            target="_blank"
+                            className="p-2"
+                        >
                             <OutlineGlobe size={18} />
                         </a>
                     </Button>
@@ -82,10 +86,8 @@ export const ProfileHeader = ({
                 <div className="flex flex-row items-center">
                     <p className="text-gray-700 dark:text-gray-300 mr-2">{`@${username}`}</p>
 
-                    {user.followsYou && (
-                        <UserBadge color="grey" variant="primary-700">
-                            {"Follows You"}
-                        </UserBadge>
+                    {user.staff && (
+                        <Badge title={user.staff}>{user.staff}</Badge>
                     )}
                 </div>
                 <div className="flex mt-2 gap-5">

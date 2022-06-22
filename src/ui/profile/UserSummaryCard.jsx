@@ -1,34 +1,16 @@
 import React from "react";
 import { SolidLink } from "../../icons";
 import { SingleUser } from "../UserAvatar";
-import { UserBadge } from "./UserBadge";
-
-export const Badges = ({ badges }) => {
-    return (
-        <>
-            {badges.map(
-                ({ content, variant, color, classname, title, naked }, i) => (
-                    <UserBadge
-                        title={title}
-                        variant={variant}
-                        color={color}
-                        className={classname}
-                        key={i}
-                    >
-                        {content}
-                    </UserBadge>
-                )
-            )}
-        </>
-    );
-};
+import { Badge } from "./Badge";
+import { SolidCompass } from "../../icons";
+import { Link } from "react-router-dom";
 
 const regex = /(^\w+:|^)\/\//;
 
 export const Website = ({ website }) => {
     return (
         <a
-            className="text-accent mt-3 font-bold text-left break-all truncate whitespace-pre-wrap line-clamp-1 w-[90%]"
+            className="text-accent mt-1 font-bold text-left break-all truncate whitespace-pre-wrap line-clamp-1 w-[90%]"
             href={website}
             target="_blank"
             rel="noreferrer"
@@ -41,52 +23,55 @@ export const Website = ({ website }) => {
 };
 
 export const UserSummaryCard = ({
-    onClick,
+    avatarUrl,
     displayName,
     username,
-    badges,
-    numFollowers,
-    numFollowing,
+    questions = 0,
+    answers = 0,
     bio,
     website,
     isOnline,
-    avatarUrl,
+    staff,
 }) => {
     return (
         <div className="flex flex-col rounded-8 p-4 w-full dark:text-white bg-stone-100 dark:bg-dark-800">
-            <button className="flex" onClick={onClick}>
-                <div className="flex">
-                    <SingleUser
-                        size="default"
-                        isOnline={isOnline}
-                        src={avatarUrl}
-                    />
-                </div>
+            <div className="flex">
+                <SingleUser size="default" src={avatarUrl} />
                 <div className="flex mt-2">
-                    <div className="flex flex-col ml-3 gap-1">
-                        <span className="font-bold text-lg overflow-hidden break-all text-left">
-                            {displayName}
-                        </span>
-                        <span className="text-left break-all dark:text-gray-300">
+                    <div className="flex flex-col ml-3">
+                        <Link to="/profile">
+                            <span className="font-bold text-lg overflow-hidden break-all text-left">
+                                {displayName}
+                            </span>
+                        </Link>
+                        <span className="text-left mb-1 break-all dark:text-gray-300">
                             @{username}
                         </span>
-                        <span className="flex mt-1">
-                            <Badges badges={badges} />
-                        </span>
+                        {staff && (
+                            <Badge
+                                variant="blue"
+                                title={staff}
+                                className="mt-1"
+                            >
+                                {staff}
+                            </Badge>
+                        )}
                     </div>
                 </div>
-            </button>
-            <div className="flex mt-3 justify-between">
+            </div>
+            <div className="flex mt-2 gap-2">
                 <div className="flex transition duration-200 ease-in-out hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1 rounded-8">
-                    <span className="font-bold">{numFollowers}</span>
-                    <span className="ml-1.5 lowercase">{"Questions"}</span>
+                    <span className="font-bold">{questions}</span>
+                    <span className="ml-1.5">{"Questions"}</span>
                 </div>
                 <div className="flex transition duration-200 ease-in-out hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1 rounded-8">
-                    <span className="font-bold">{numFollowing}</span>
-                    <span className="ml-1.5 lowercase">{"Answers"}</span>
+                    <span className="font-bold">{answers}</span>
+                    <span className="ml-1.5">{"Answers"}</span>
                 </div>
             </div>
-            <div className="flex mt-3 break-words text-left">{bio}</div>
+            <div className="my-1 break-all truncate whitespace-pre-wrap line-clamp-2">
+                {bio}
+            </div>
             {website && <Website website={website} />}
         </div>
     );

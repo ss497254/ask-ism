@@ -47,11 +47,7 @@ export const UserProfileController = ({}) => {
             >
                 {"Voice Settings"}
             </Button>
-            <Button
-                style={{ marginRight: "10px" }}
-                size="small"
-                // onClick={() => push(`/overlay-settings`)}
-            >
+            <Button style={{ marginRight: "10px" }} size="small">
                 {"Overlay Settings"}
             </Button>
             <Button

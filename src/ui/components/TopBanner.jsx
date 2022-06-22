@@ -36,7 +36,7 @@ export const TopBanner = ({ button, duration = "default" }) => {
 
     return (
         <div
-            className={`flex relative p-1 h-5 w-full items-center justify-center text-button transition-transform duration-300 bg-emerald-500`}
+            className={`bg-sky-500 flex relative p-1 h-5 w-full items-center justify-center text-button transition-transform duration-300`}
         >
             {setShowTopBanner ? (
                 <div

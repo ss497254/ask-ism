@@ -2,7 +2,7 @@
 module.exports = {
     darkMode: "class",
     content: ["./src/**/*.jsx", "./public/index.html"],
-    safelist: ["."],
+    safelist: [".stroke*"],
     theme: {
         screens: {
             sm: "768px",

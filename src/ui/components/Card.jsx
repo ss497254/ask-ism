@@ -53,25 +53,25 @@ export const Card = ({
                             onClick={() => onlikeChange(1)}
                         >
                             <OutlineLike
-                                className={`inline-block ${
-                                    like === 1
+                                className={`inline-block stroke-green-500 ${
+                                    like == 1
                                         ? "text-green-500"
                                         : "text-transparent"
-                                } stroke-green-500`}
+                                }`}
                                 size="18"
                             />
                         </Button>
                         <Button
-                            className="w-8 h-5"
+                            className="w-8 h-5 text-gray-"
                             btn="light"
                             onClick={() => onlikeChange(-1)}
                         >
                             <OutlineLike
                                 className={`inline-block ${
-                                    like === -1
+                                    like == -1
                                         ? "text-accent"
                                         : "text-transparent"
-                                } stroke-accent`}
+                                } rotate-180 stroke-accent transform`}
                                 size="18"
                             />
                         </Button>
