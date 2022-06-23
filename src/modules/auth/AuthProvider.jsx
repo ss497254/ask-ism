@@ -25,6 +25,7 @@ export const AuthProvider = ({ children }) => {
             answers: 69,
             website: "https://ss497254.github.io",
             avatarUrl: "/img/ss497254.png",
+            bannerUrl: "/img/ss497254.png",
         },
         setUser: () => {},
         setConn: () => {},

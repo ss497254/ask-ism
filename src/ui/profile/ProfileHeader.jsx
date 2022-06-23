@@ -9,7 +9,7 @@ import {
     SolidCalendar,
     OutlineGlobe,
 } from "../../icons";
-// import { EditProfileModal } from "../modules/user/EditProfileModal";
+// import { EditProfileModal } from "../../modules/user/EditProfileModal";
 import { badge, Badges } from "./UserSummaryCard";
 
 export const ProfileHeader = ({
@@ -49,7 +49,7 @@ export const ProfileHeader = ({
     /> */
     }
     return (
-        <ProfileHeaderWrapper coverUrl={user.bannerUrl || "/img/ss497254.png"}>
+        <ProfileHeaderWrapper coverUrl={user.bannerUrl}>
             <div className="flex w-full relative justify-between pb-2 mb-1">
                 <SingleUser
                     size="xxl"
@@ -60,9 +60,6 @@ export const ProfileHeader = ({
                     <Button className="w-6 rounded-full" btn="accent" loading>
                         <SolidCompass />
                     </Button>
-                    {/* <Button className="w-6 rounded-full" btn="accent">
-                        <SolidCompass />
-                    </Button> */}
                     <Button className="w-6 rounded-full" btn="accent">
                         <a
                             href={user.website || "#"}

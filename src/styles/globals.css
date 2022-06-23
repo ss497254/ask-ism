@@ -76,17 +76,6 @@ p.small {
     box-sizing: border-box;
 }
 
-/* ::-webkit-scrollbar {
-    overflow: overlay;
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    display: initial;
-}
-
- */
-
 @media only screen and (min-width: 1000px) {
     ::-webkit-scrollbar {
         width: 10px;

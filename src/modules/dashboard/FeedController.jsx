@@ -95,7 +95,7 @@ const Page = ({ cursor, isOnlyPage, isLastPage, onLoadMore }) => {
                     }
                     answers={question.numOfAnswers}
                     tags={question.tags}
-                    like={question.like}
+                    likeValue={question.like}
                 />
             ))}
             <div className={`flex justify-center py-5`}>

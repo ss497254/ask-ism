@@ -25,7 +25,7 @@ export const ProfileHeader = ({
 
     return (
         <div
-            className={`flex w-full h-6.5 px-3 justify-between items-center bg-gray-50 dark:bg-dark-900 border-b border-smoke-400 dark:border-dark-700 ${className}`}
+            className={`flex w-full h-6.5 px-3 justify-between items-center bg-gray-100 dark:bg-dark-900 border-b border-smoke-300 dark:border-dark-700 ${className}`}
             {...props}
         >
             <SingleUser

@@ -1,24 +1,14 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
-import Transition from "../../ui/components/Transition";
-import {
-    SolidMegaphone,
-    DeveloperIcon,
-    OutlineGlobe,
-    SolidSettings,
-    SolidLogOut,
-    SolidBug,
-    SolidCaretRight,
-    SolidUser,
-    SolidHelp,
-    SolidMoon,
-    SolidSun,
-    SolidVolume,
-    SolidVolumeOff,
-} from "../../icons";
+import React, { useEffect, useRef, useState } from "react";
 import { useDarkMode } from "../../global-stores/useDarkMode";
-import { BaseOverlay } from "../../ui/components/BaseOverlay";
-import { SettingsIcon } from "../../ui/components/SettingsIcon";
+import {
+    DeveloperIcon,
+    SolidBug,
+    SolidHelp,
+    SolidLogOut,
+    SolidMoon,
+    SolidSettings,
+} from "../../icons";
+import Transition from "../../ui/components/Transition";
 
 function ProfileDropdown({ size, className, children }) {
     const { toggleDarkMode } = useDarkMode();
@@ -107,12 +97,6 @@ function ProfileDropdown({ size, className, children }) {
                         <SolidLogOut />
                         <span>Logout</span>
                     </div>
-                    {/* <BaseOverlay
-                        onActionButtonClicked={() => {}}
-                        onActionButtonClassname={"text-lg"}
-                        actionButton={"Logout"}
-                        overlay={currentOverlay}
-                    ></BaseOverlay> */}
                 </div>
             </Transition>
         </div>
@@ -120,65 +104,3 @@ function ProfileDropdown({ size, className, children }) {
 }
 
 export default ProfileDropdown;
-
-{
-    /* </div>
-                <div
-                    ref={dropdown}
-                    onFocus={() => setDropdownOpen(true)}
-                    onBlur={() => setDropdownOpen(false)}
-                >
-                    <div className="font-semibold text-gray-900 uppercase py-2.5 px-4">
-                        Profile
-                    </div>
-                    <ul>
-                        <li className="border-t border-slate-200 last:border-b">
-                            <Link
-                                className="block py-2 px-4 hover:bg-blue-400"dark:hover:bg-blue-500  
-                                to="#0"
-                                onClick={() => setDropdownOpen(!dropdownOpen)}
-                            >
-                                <span className="block text-base mb-2 text-justify">
-                                    📣{" "}
-                                    <span className="font-medium text-slate-800">
-                                        Edit your information in a swipe
-                                    </span>{" "}
-                                    Sint occaecat cupidatat non proident, sunt
-                                    in culpa qui officia deserunt mollit anim.
-                                </span>
-                                <span className="block text-xs font-medium text-slate-500">
-                                    Feb 12, 2021
-                                </span>
-                            </Link>
-                        </li>
-                        <li className="border-t border-slate-200 last:border-b">
-                            <Link
-                                className="block py-2 px-4 hover:bg-blue-400"dark:hover:bg-blue-500  
-                                to="#0"
-                                onClick={() => setDropdownOpen(!dropdownOpen)}
-                            >
-                                <span className="block text-md mb-2 text-justify">
-                                    🚀
-                                    <span className="font-medium text-slate-800">
-                                        Say goodbye to paper receipts!
-                                    </span>{" "}
-                                    Sint occaecat cupidatat non proident, sunt
-                                    in culpa qui officia deserunt mollit anim.
-                                </span>
-                                <span className="block text-xs font-medium text-slate-500">
-                                    Jan 24, 2020
-                                </span>
-                            </Link>
-                        </li>
-                    </ul>
-                    <div className="font-semibold text-blue-700 py-2 px-4">
-                        <Link
-                            to="/ProfileDropdown"
-                            onClick={() => {
-                                setDropdownOpen(!dropdownOpen);
-                            }}
-                        >
-                            See More
-                        </Link>
-                </div> */
-}

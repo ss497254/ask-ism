@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { MiddlePanel } from "../modules/layouts/GridPanels";
 
 export default function Notification() {
     const [activeTab, setActiveTab] = useState(0);
@@ -8,8 +7,8 @@ export default function Notification() {
     const Tabs = ["Notification", "Mentions"];
 
     return (
-        <MiddlePanel>
-            <div className="font-medium text-md text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+        <>
+            <div className="font-medium text-md text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700 md:px-2">
                 <ul className="flex w-full -mb-px">
                     {Tabs.map((tab, index) => (
                         <li
@@ -190,6 +189,6 @@ export default function Notification() {
                     </li>
                 </ul>
             </div>
-        </MiddlePanel>
+        </>
     );
 }

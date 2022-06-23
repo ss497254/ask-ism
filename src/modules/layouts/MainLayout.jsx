@@ -6,7 +6,7 @@ import { Banner } from "../../ui/components/Banner";
 import { AccountOverlay } from "../../ui/mobile/AccountOverlay";
 import { ProfileHeader } from "../../ui/mobile/MobileHeader";
 import { MobileNav } from "../../ui/mobile/MobileNav";
-import { ProfileBlockController } from "../dashboard/ProfileBlockController";
+import { ProfileBlockController } from "./ProfileBlockController";
 import { LeftPanel, RightPanel, MiddlePanel } from "./GridPanels";
 
 export const MainLayout = ({ children }) => {

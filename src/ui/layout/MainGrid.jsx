@@ -7,7 +7,7 @@ export const MainInnerGrid = ({ children, className = "", screenType }) => {
     let gridTemplateColumns = "225px 1fr 310px";
 
     if (screenType === "xl-desktop") {
-        gridTemplateColumns = "240px 750px 330px";
+        gridTemplateColumns = "240px 750px 340px";
     } else if (screenType === "tablet-landscape") {
         gridTemplateColumns = "80px 1fr 300px";
     } else if (screenType === "tablet") {
