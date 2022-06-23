@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { OutlineLike } from "../../icons";
 // import { Input } from "./Input";
+import { SolidCaretRight, SolidFullscreen } from "../../icons";
 import { SingleUser } from "../UserAvatar";
 import { BubbleText } from "./BubbleText";
 import { Button } from "./Button";
@@ -11,35 +12,26 @@ export const Card = ({
     text,
     subtitle,
     avatarUrl,
-    listeners,
+    answers = 0,
     tags,
     onlikeChange = () => {},
     like = 0,
 }) => {
     const [expand, setExpand] = useState(false);
     return (
-        <div
-            onClick={() => setExpand(!expand)}
-            className="flex flex-col justify-between w-full p-4 rounded-lg ease-in-out bg-gray-50 dark:bg-zinc-900 dark:text-white outline lg:outline-1 hover:outline-2 outline-gray-300 dark:outline-zinc-700 hover:outline-slate-300 dark:hover:outline-zinc-600 mb-4"
-        >
+        <div className="flex flex-col justify-between w-full p-4 rounded-lg ease-in-out bg-gray-50 dark:bg-dark-800 dark:text-white outline lg:outline-1 hover:outline-2 outline-gray-300 dark:outline-dark-700 hover:outline-slate-300 dark:hover:outline-dark-600 mb-4">
             <CardHeading text={text} />
-            <div className="flex flex-col w-full">
-                <div className="flex flex-row gap-2 w-full mt-3 mb-1">
+            <div className="flex flex-col w-full mt-2">
+                <div className="flex flex-row gap-2 w-full my-1">
                     {tags.slice(0, 5).map((tag, idx) => (
                         <Tag key={idx}>{tag}</Tag>
                     ))}
-                    <div className="flex-grow"></div>
-                    <div className="flex flex-shrink-0">
-                        <BubbleText live={listeners > 0}>
-                            {listeners > 0 ? listeners : "No Answers yet"}
-                        </BubbleText>
-                    </div>
                 </div>
                 <div className="flex flex-row justify-between items-center w-full mt-1">
                     {avatarUrl ? (
                         <SingleUser
                             className="mr-2"
-                            size="xxs"
+                            size="xms"
                             src={avatarUrl}
                         />
                     ) : null}
@@ -78,22 +70,35 @@ export const Card = ({
                         </Button>
                     </div>
                 </div>
+                <button
+                    className="flex flex-row justify-between items-center w-full mt-2 bg-sky-100 dark:bg-gray-800 px-3 py-2 rounded-md"
+                    onClick={() => setTimeout(() => setExpand(!expand), 150)}
+                >
+                    <div className="flex flex-shrink-0">
+                        <BubbleText live={answers > 0}>
+                            {answers > 0 ? answers : "No Answers yet"}
+                        </BubbleText>
+                    </div>
+                    <div className="flex-grow"></div>
+                    <SolidCaretRight
+                        className={
+                            "rounded-full mr-1 " +
+                            (expand ? "rotate-180 transform" : "")
+                        }
+                        size="18"
+                    />
+                </button>
                 {expand && (
-                    <div className="flex gap-2 mt-2">
-                        <Button className="w-8 h-5">
+                    <div className="flex gap-2 mt-2 rounded-md">
+                        <Button className="w-8 h-5 gap-2">
                             <span className="text-sm">Read</span>
+                            <SolidFullscreen size="10" />
                         </Button>
                         <Button className="w-8 h-5">
                             <span className="text-sm">Write</span>
                         </Button>
                     </div>
                 )}
-                {/* <div className="flex flex-row justify-between w-full mt-2">
-                    <SolidCaretRight
-                        className="transform rotate-90"
-                        size="20"
-                    />
-                </div> */}
             </div>
         </div>
     );

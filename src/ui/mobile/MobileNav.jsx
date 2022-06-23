@@ -11,7 +11,7 @@ import { Link, useLocation } from "react-router-dom";
 export const MobileNavContainer = ({ className, children }) => {
     return (
         <div
-            className={`flex fixed bottom-0 left-0 right-0 h-6.5 bg-gray-100 dark:bg-zinc-900 border-t border-gray-300 dark:border-slate-800 ${className}`}
+            className={`flex fixed bottom-0 left-0 right-0 h-6.5 bg-gray-100 dark:bg-dark-900 border-t border-gray-200 dark:border-dark-700 ${className}`}
         >
             {children}
         </div>
@@ -32,7 +32,7 @@ export const MobileNavItem = ({ children, targetPath }) => {
                 React.Children.map(children, (child) => {
                     return React.cloneElement(child, {
                         className: isActive
-                            ? "h-4 w-4 fill-indigo-600"
+                            ? "h-4 w-4 fill-indigo-500"
                             : "h-4 w-4 dark:fill-white",
                     });
                 })}

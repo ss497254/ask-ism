@@ -124,7 +124,7 @@ function Announcements({ size, className }) {
                             </Link>
                         </li>
                     </ul>
-                    <div className="font-semibold text-blue-700 py-2 px-4">
+                    <div className="font-semibold text-blue-700 dark:text-blue-500 py-2 px-4">
                         <Link
                             to="/Announcements"
                             onClick={() => {

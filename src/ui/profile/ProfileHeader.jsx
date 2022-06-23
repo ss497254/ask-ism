@@ -53,7 +53,7 @@ export const ProfileHeader = ({
             <div className="flex w-full relative justify-between pb-2 mb-1">
                 <SingleUser
                     size="xxl"
-                    className="-mt-[90px] flex-none bg-inherit rounded-full outline outline-[3px] outline-stone-100 dark:outline-dark-800 shadow-outlineLg"
+                    className="-mt-[90px] flex-none rounded-full outline outline-[3px] outline-stone-100 dark:outline-dark-800 shadow-outlineLg"
                     src={pfp}
                 />
                 <div className="flex gap-2 h-6">

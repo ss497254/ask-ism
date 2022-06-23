@@ -56,7 +56,7 @@ function ProfileDropdown({ size, className, children }) {
         <div className="relative inline-flex">
             <button
                 ref={trigger}
-                className={`flex items-center justify-center transition duration-150 rounded-full ${className}`}
+                className={`${className}`}
                 aria-haspopup="true"
                 onClick={() => setDropdownOpen(!dropdownOpen)}
                 aria-expanded={dropdownOpen}

@@ -11,6 +11,10 @@ export default function NavigationBar() {
         setWidth(width / 100);
     }, [trigger]);
 
+    useLayoutEffect(() => {
+        setWidth(ref?.current.offsetWidth);
+    });
+
     // useEffect(() => {
     //     const container = document.getElementById("scroll-horizontal");
     //     container.addEventListener("wheel", function (e) {
@@ -23,13 +27,21 @@ export default function NavigationBar() {
     //         }
     //     });
     // }, []);
-    const List = ["asdf", "alkjlk", "adsfaf", "ajfiouaoifu", "asdf", "alkjlk"];
+    const List = [
+        "asdfasdf",
+        "alkjl asdk",
+        "adsfafd dasd",
+        "ajfiouaoifu",
+        "asdf",
+        "alkjlk",
+        "asdfasdf",
+        "alkjl asdk",
+        "adsfafd dasd",
+        "ajfiouaoifu",
+        "asdf",
+    ];
 
     const handleClick = (index) => () => setActive(index);
-
-    useLayoutEffect(() => {
-        setWidth(ref.current.offsetWidth);
-    });
 
     return (
         <div className="w-full" ref={ref}>
@@ -42,7 +54,7 @@ export default function NavigationBar() {
                     <span
                         key={index}
                         onClick={handleClick(index)}
-                        className={`flex items-center border rounded-lg text-sm font-medium px-3 ${
+                        className={`border rounded-lg text-sm font-medium px-3 whitespace-nowrap py-1 ${
                             active === index
                                 ? "bg-indigo-200 border-indigo-300 text-indigo-800 dark:bg-indigo-300 dark:text-indigo-900"
                                 : "border-gray-200 dark:border-zinc-800 dark:text-gray-300"

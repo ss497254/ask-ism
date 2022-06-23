@@ -5,6 +5,7 @@ import React, {
     useRef,
     useState,
 } from "react";
+import NavigationBar from "./NavigationBar";
 import { useCurrentAnsIdStore } from "../../global-stores/useCurrentAnsIdStore";
 import { useScreenType } from "../../shared-hooks/useScreenType";
 import useWindowSize from "../../shared-hooks/useWindowSize";
@@ -80,7 +81,7 @@ const Page = ({ cursor, isOnlyPage, isLastPage, onLoadMore }) => {
     }
 
     return (
-        <div>
+        <>
             {data.map((question) => (
                 <Card
                     onClick={() => {}}
@@ -92,7 +93,7 @@ const Page = ({ cursor, isOnlyPage, isLastPage, onLoadMore }) => {
                     avatarUrl={
                         "User" in question ? question.User.avatarUrl : null
                     }
-                    listeners={question.numOfAnswers}
+                    answers={question.numOfAnswers}
                     tags={question.tags}
                     like={question.like}
                 />
@@ -107,7 +108,7 @@ const Page = ({ cursor, isOnlyPage, isLastPage, onLoadMore }) => {
                     {"Load More"}
                 </Button>
             </div>
-        </div>
+        </>
     );
 };
 
@@ -116,33 +117,26 @@ export const Feed = ({}) => {
     const { conn } = useContext(AuthContext);
     const [roomModal, setAnsModal] = useState(false);
     const screenType = useScreenType();
-    const { currentAnsId } = useCurrentAnsIdStore;
-
-    let mb = "mb-3";
-    if (screenType === "fullscreen") {
-        if (currentAnsId) {
-            mb = "mb-6";
-        } else {
-            mb = "mb-4";
-        }
-    }
 
     return (
-        // <MiddlePanel stickyChildren={<Bar />}>
-        <div className={`px-2`}>
-            <FeedHeader
-                className="px-1"
-                actionTitle={"Create Question"}
-                onActionClicked={() => {
-                    setAnsModal(true);
-                }}
-                title={"Your Feed"}
-            />
-            <Page />
-            {roomModal && (
-                <CreateAnsModal onRequestClose={() => setAnsModal(false)} />
+        <>
+            {(screenType === "tablet" || screenType === "mobile") && (
+                <NavigationBar />
             )}
-        </div>
-        // </MiddlePanel>
+            <div className={`px-2`}>
+                <FeedHeader
+                    className="px-1"
+                    actionTitle={"Create Question"}
+                    onActionClicked={() => {
+                        setAnsModal(true);
+                    }}
+                    title={"Your Feed"}
+                />
+                <Page />
+                {roomModal && (
+                    <CreateAnsModal onRequestClose={() => setAnsModal(false)} />
+                )}
+            </div>
+        </>
     );
 };

@@ -83,7 +83,7 @@ export const MainLayout = ({ children }) => {
                 </div>
             )}
             <div
-                className={`relative mx-auto scrollbar-thin scrollbar-thumb-gray-900 ${
+                className={`relative mx-auto ${
                     !!defaultMobileHeader ? "my-6.5" : ""
                 }`}
             >
