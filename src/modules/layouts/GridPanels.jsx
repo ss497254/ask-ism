@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
-// import { useHostStore } from "../../global-stores/useHostStore";
 import { useScreenType } from "../../shared-hooks/useScreenType";
 import { FixedGridPanel, GridPanel } from "../../ui/layout/GridPanel";
 import LeftHeader from "../../ui/header/LeftHeader";
 import { MiddleHeader } from "../../ui/header/MiddleHeader";
 import RightHeader from "../../ui/header/RightHeader";
 import { Link } from "react-router-dom";
-// import { AuthContext } from "../auth/AuthProvider";
-// // import { useConn } from "../shared-hooks/useConn";
+import { useConn } from "../../shared-hooks/useConn";
 import {
     SolidHome,
     SolidNotification,
@@ -154,23 +152,13 @@ export const MiddlePanel = ({ stickyChildren, children, className }) => {
 
 export const RightPanel = ({ children }) => {
     const screenType = useScreenType();
-    // const { conn } = useContext(AuthContext);
+    const { user } = useConn();
     return (
         <FixedGridPanel
             className={`${screenType.includes("xl") ? "px-4" : "pl-2 pr-4"}`}
         >
-            <HeaderWrapper>{true ? <RightHeader /> : null}</HeaderWrapper>
+            <HeaderWrapper>{!!user ? <RightHeader /> : null}</HeaderWrapper>
             {children}
         </FixedGridPanel>
     );
 };
-
-// // import { ApiPreloadLink } from "../shared-components/ApiPreloadLink";
-
-//  const LeftPanel = ({ isTablet }) => {
-//     // const { push } = useRouter();
-
-//     // const [cursors, setCursors] = useState([0, 1]);
-//     // const conn = useConn();
-
-// };

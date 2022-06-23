@@ -101,7 +101,6 @@ export const ProfileHeader = ({
                     </div>
                 </div>
                 <div className="mt-2 flex gap-2 items-center">
-                    {/* <Badges badges={badges} /> */}
                     {children}
                     <SolidCalendar style={{ color: "secondary" }} />
                     Joined at {new Date().toLocaleDateString()}

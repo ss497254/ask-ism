@@ -10,8 +10,10 @@ import {
 } from "../../ui/Search/SearchResult";
 import useWindowSize from "../../shared-hooks/useWindowSize";
 import usePageVisibility from "../../shared-hooks/usePageVisibility";
+import { useConn } from "../../shared-hooks/useConn";
 
 export const SearchBarController = ({}) => {
+    const { user } = useConn();
     const [rawText, setText] = useState("");
     const visible = usePageVisibility();
     const text = "asdf";
@@ -26,27 +28,28 @@ export const SearchBarController = ({}) => {
         enabled = true;
     }
 
-    // const { data, isLoading } = useQuery(["search", text].join("/"), {
+    // const { data, isLoading } = useQuery(["search", text], {
     //     enabled,
     // });
-    const data = [],
-        isLoading = true;
-    // const { push } = useRouter();
+
+    const data = null,
+        isLoading = false;
     const results = [];
 
     return (
-        <div className="relative w-full z-10 flex flex-col">
+        <div className="relative w-full z-10 flex flex-col px-2">
             <SearchBar
-                // {...getInputProps()}
-                // value={rawText}
                 placeholder={
                     isOverflowing
                         ? "Search"
                         : "Search for questions, answers or spaces"
                 }
-                isLoading={isLoading}
+                onChange={(e) => {
+                    setText(e.target.value);
+                }}
+                isLoading={!!rawText}
             />
-            {false ? (
+            {!!rawText ? (
                 <SearchOverlay
                 // {...getRootProps(
                 //     { refKey: "ref" },
@@ -54,51 +57,17 @@ export const SearchBarController = ({}) => {
                 // )}
                 >
                     <ul
-                        className="w-full px-2 mb-2 mt-7 bg-primary-800 rounded-b-8 overflow-y-auto"
+                        className="w-full px-2 mb-2 mt-7 rounded-b-8 overflow-y-auto"
                         // {...getMenuProps({ style: { top: 0 } })}
                     >
                         {data ? (
                             <InfoText className="p-3">no results</InfoText>
-                        ) : null}
-
-                        {/* {results.map((item, index) =>
-                                    "username" in item ? (
-                                        // eslint-disable-next-line react/jsx-key
-                                        <li
-                                            {...getItemProps({
-                                                key: item.id,
-                                                index,
-                                                item,
-                                            })}
-                                        >
-                                            <UserSearchResult
-                                                user={item}
-                                                className={
-                                                    highlightedIndex === index
-                                                        ? "bg-primary-700"
-                                                        : "bg-primary-800"
-                                                }
-                                            />
-                                        </li>
-                                    ) : (
-                                        <li
-                                            {...getItemProps({
-                                                key: item.id,
-                                                index,
-                                                item,
-                                            })}
-                                        >
-                                            <AnsSearchResult
-                                                room={item}
-                                                className={
-                                                    highlightedIndex === index
-                                                        ? "bg-primary-700"
-                                                        : "bg-primary-800"
-                                                }
-                                            />
-                                        </li>
-                                    )
-                                )} */}
+                        ) : (
+                            <>
+                                <UserSearchResult user={user} />
+                                <AnsSearchResult room={{ name: "lelo" }} />
+                            </>
+                        )}
                     </ul>
                 </SearchOverlay>
             ) : null}

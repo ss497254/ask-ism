@@ -1,6 +1,4 @@
 import React from "react";
-// import { useHostStore } from "../../global-stores/useHostStore";
-
 // import { useConn } from "../../shared-hooks/useConn";
 import { useScreenType } from "../../shared-hooks/useScreenType";
 import { MainInnerGrid } from "../../ui/layout/MainGrid";
@@ -9,7 +7,7 @@ import { AccountOverlay } from "../../ui/mobile/AccountOverlay";
 import { ProfileHeader } from "../../ui/mobile/MobileHeader";
 import { MobileNav } from "../../ui/mobile/MobileNav";
 import { ProfileBlockController } from "../dashboard/ProfileBlockController";
-import { LeftPanel, RightPanel } from "./GridPanels";
+import { LeftPanel, RightPanel, MiddlePanel } from "./GridPanels";
 
 export const MainLayout = ({ children }) => {
     const screenType = useScreenType();
@@ -24,7 +22,7 @@ export const MainLayout = ({ children }) => {
             middle = (
                 <>
                     <LeftPanel />
-                    {children}
+                    <MiddlePanel>{children}</MiddlePanel>
                     <RightPanel>
                         <ProfileBlockController />
                     </RightPanel>
@@ -35,7 +33,7 @@ export const MainLayout = ({ children }) => {
             middle = (
                 <>
                     <LeftPanel />
-                    {children}
+                    <MiddlePanel>{children}</MiddlePanel>
                     <RightPanel>
                         <ProfileBlockController />
                     </RightPanel>
@@ -46,7 +44,7 @@ export const MainLayout = ({ children }) => {
             middle = (
                 <>
                     <LeftPanel tablet />
-                    {children}
+                    <MiddlePanel>{children}</MiddlePanel>
                     <RightPanel>
                         <ProfileBlockController />
                     </RightPanel>
@@ -57,7 +55,7 @@ export const MainLayout = ({ children }) => {
             middle = (
                 <>
                     <LeftPanel tablet />
-                    {children}
+                    <MiddlePanel>{children}</MiddlePanel>
                 </>
             );
             break;

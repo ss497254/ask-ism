@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { SolidTime, OutlineLike, SolidCaretRight } from "../../icons";
+import React, { useState } from "react";
+import { OutlineLike } from "../../icons";
+// import { Input } from "./Input";
+import { SingleUser } from "../UserAvatar";
 import { BubbleText } from "./BubbleText";
-import { CardHeading } from "./CardHeading";
 import { Button } from "./Button";
+import { CardHeading } from "./CardHeading";
 import { Tag } from "./Tag";
-import { MultipleUsers, SingleUser } from "../UserAvatar";
 
 export const Card = ({
     text,
@@ -13,13 +14,13 @@ export const Card = ({
     listeners,
     tags,
     onlikeChange = () => {},
-    onClick,
     like = 0,
 }) => {
+    const [expand, setExpand] = useState(false);
     return (
         <div
-            onClick={onClick}
-            className="flex flex-col justify-between w-full p-4 rounded-lg transition duration-200 ease-in-out bg-gray-50 dark:bg-zinc-900 dark:text-white outline lg:outline-1 hover:outline-2 outline-gray-300 dark:outline-zinc-700 hover:outline-slate-300 dark:hover:outline-zinc-600 mb-4"
+            onClick={() => setExpand(!expand)}
+            className="flex flex-col justify-between w-full p-4 rounded-lg ease-in-out bg-gray-50 dark:bg-zinc-900 dark:text-white outline lg:outline-1 hover:outline-2 outline-gray-300 dark:outline-zinc-700 hover:outline-slate-300 dark:hover:outline-zinc-600 mb-4"
         >
             <CardHeading text={text} />
             <div className="flex flex-col w-full">
@@ -62,7 +63,7 @@ export const Card = ({
                             />
                         </Button>
                         <Button
-                            className="w-8 h-5 text-gray-"
+                            className="w-8 h-5"
                             btn="light"
                             onClick={() => onlikeChange(-1)}
                         >
@@ -77,6 +78,16 @@ export const Card = ({
                         </Button>
                     </div>
                 </div>
+                {expand && (
+                    <div className="flex gap-2 mt-2">
+                        <Button className="w-8 h-5">
+                            <span className="text-sm">Read</span>
+                        </Button>
+                        <Button className="w-8 h-5">
+                            <span className="text-sm">Write</span>
+                        </Button>
+                    </div>
+                )}
                 {/* <div className="flex flex-row justify-between w-full mt-2">
                     <SolidCaretRight
                         className="transform rotate-90"

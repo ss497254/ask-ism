@@ -29,12 +29,12 @@ export const SpacesCard = ({ onClick, speakersInfo, title, transition }) => {
 
 export const Spaces = ({ rooms }) => {
     return (
-        <div className="w-full rounded-lg bg-emerald-500 dark:bg-emerald-600 overflow-hidden flex flex-col">
-            <div className="px-4 py-2 border-b border-gray-300 dark:border-gray-700 flex justify-between items-center">
+        <div className="w-full rounded-lg overflow-hidden flex flex-col">
+            <div className="px-4 py-2 bg-emerald-500 dark:bg-emerald-600 border-b border-gray-300 dark:border-gray-700 flex justify-between items-center">
                 <h4 className="text-white font-bold">{"Your Spaces"}</h4>
             </div>
             <div
-                className="flex flex-col overflow-y-scroll scrollbar-small"
+                className="flex flex-col overflow-y-scroll scrollbar-small bg-warm-gray-200"
                 style={{ height: 280 }}
             >
                 {rooms.map((room) => (

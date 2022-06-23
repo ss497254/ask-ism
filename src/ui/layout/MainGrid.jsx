@@ -26,7 +26,9 @@ export const MainInnerGrid = ({ children, className = "", screenType }) => {
                         ? "gap-5"
                         : width > 1380
                         ? "gap-3 mx-5"
-                        : "gap-2"
+                        : width > 1000
+                        ? "gap-2"
+                        : ""
                 }`}
                 style={{ gridTemplateColumns, maxWidth: 1380 }}
             >

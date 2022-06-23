@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../modules/auth/AuthProvider";
 import { HeaderController } from "../modules/display/HeaderController";
-import { MiddlePanel } from "../modules/layouts/GridPanels";
 import { UserProfile } from "../ui/profile/UserProfile";
 
 export default function Profile({}) {
@@ -16,9 +15,7 @@ export default function Profile({}) {
                     description={user.bio ? user.bio : undefined}
                 />
             ) : null}
-            <MiddlePanel>
-                <UserProfile user={user} isCurrentUser />
-            </MiddlePanel>
+            <UserProfile user={user} isCurrentUser />
         </>
     );
 }

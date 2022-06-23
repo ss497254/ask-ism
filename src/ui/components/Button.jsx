@@ -1,12 +1,6 @@
 import React from "react";
 import { Spinner } from "./Spinner";
 
-// const colorClassnames = {
-//     primary:
-//         ,
-//     custom: "",
-// };
-
 //  Button = ({
 //     children,
 //     size = "big",
@@ -48,7 +42,7 @@ import { Spinner } from "./Spinner";
 
 const btnType = {
     default:
-        "text-white bg-blue-600 hover:bg-blue-700 focus:ring-[3px] focus:ring-blue-300 font-medium dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-300",
+        "text-white bg-blue-600 hover:bg-blue-700 focus:ring-[3px] focus:ring-blue-300 font-medium dark:bg-sky-600 focus:outline-none dark:focus:ring-blue-300",
 
     accent: "text-white bg-accent transition rounded-md duration-200 ease-in-out hover:bg-accent-hover  focus:ring-[3px] focus:ring-blue-400 dark:focus:ring-blue-600 disabled:text-accent-disabled disabled:bg-accent-hover",
 
@@ -60,16 +54,15 @@ export const Button = ({
     btn = "default",
     disabled,
     loading,
-    loadingText,
-    icon,
     className = "",
-    transition,
     ...props
 }) => {
     return (
         <button
             type="button"
+            disabled={disabled}
             className={`w-full text-base transition duration-200 ease-in-out font-semibold flex items-center justify-center py-2 rounded-lg ${btnType[btn]} ${className}`}
+            {...props}
         >
             {loading ? <Spinner /> : children}
         </button>

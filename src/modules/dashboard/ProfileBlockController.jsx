@@ -46,7 +46,7 @@ export const ProfileBlockController = ({}) => {
                                 },
                             },
                             {
-                                id: 8527,
+                                id: 87,
                                 title: "Academics",
                                 speakersInfo: {
                                     speakers: ["saurabh", "sahil", "sameer"],

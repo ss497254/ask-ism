@@ -1,14 +1,7 @@
 import React from "react";
-// import { useCurrentAnsIdStore } from "../../global-stores/useCurrentAnsIdStore";
-import { SolidMegaphone, SolidMessages, SolidNotification } from "../../icons";
 import AnnouncementDropdown from "../../modules/dropdown/AnnouncementDropdown";
 import ProfileDropdown from "../../modules/dropdown/ProfileDropdown";
-
-// import { useTokenStore } from "../../modules/auth/useTokenStore";
-// import { modalConfirm } from "../../shared-components/ConfirmModal";
 import { useConn } from "../../shared-hooks/useConn";
-// import { DropdownController } from "../components/DropdownController";
-import { SettingsDropdown } from "../components/SettingsDropdown";
 import { SingleUser } from "../UserAvatar";
 
 const Icon = ({ className, icon }) => {
@@ -32,67 +25,19 @@ const Icon = ({ className, icon }) => {
     );
 };
 
-const RightHeader = ({
-    actionButton,
-    onAnnouncementsClick,
-    onMessagesClick,
-    onNotificationsClick,
-}) => {
-    const conn = useConn();
-
-    // if (!conn) {
-    //     return <div />;
-    // }
+const RightHeader = ({}) => {
+    const { user } = useConn();
 
     return (
         <div className="relative z-50 flex space-x-4 items-center justify-end focus:outline-no-chrome w-full">
-            {/* <button
-                onClick={onAnnouncementsClick}
-                className="bg-gray-200 rounded-full"
-            >
-            <Icon
-            icon={
-                <SolidMegaphone
-                width={23}
-                height={23}
-                            className="text-gray-900"
-                            />
-                    }
-                />
-            </button> */}
             <AnnouncementDropdown size={23} className="bg-gray-200 h-6 w-6" />
             <ProfileDropdown size={23} className="bg-gray-200 h-6 w-6">
                 <SingleUser
                     className={"focus:outline-no-chrome"}
                     size="sm"
-                    src={"/img/ss497254.png"}
+                    src={user.avatarUrl || "/img/male-1a.jpg"}
                 />
             </ProfileDropdown>
-            {actionButton}
-            {/* <SettingsDropdown
-                onActionButtonClicked={() => {
-                    // modalConfirm("Are you sure you want to logout?", () => {
-                    //     // useCurrentAnsIdStore
-                    //     //     .getState()
-                    //     //     .setCurrentAnsId(null);
-                    //     // useTokenStore.getState().setTokens({
-                    //     //     accessToken: "",
-                    //     //     refreshToken: "",
-                    //     // });
-                    // });
-                }}
-                onCloseDropdown={() => {}}
-                user={conn.user}
-            /> */}
-            {/* <DropdownController
-                zIndex={20}
-                className="top-9 right-9 md:right-4 fixed"
-                innerClassName="fixed  transform -translate-x-full"
-                overlay={(close) => (
-                    <div />
-                )}
-            >
-        </DropdownController> */}
         </div>
     );
 };

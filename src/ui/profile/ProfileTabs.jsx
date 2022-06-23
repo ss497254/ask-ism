@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useConn } from "../../shared-hooks/useConn";
 import { ProfileAbout } from "./ProfileAbout";
 import { ProfileAdmin } from "./ProfileAdmin";
-// import { ProfileScheduled } from "./ProfileScheduled";
+import { ProfileScheduled } from "./ProfileScheduled";
 
 export const ProfileTabs = ({
     className,
@@ -20,6 +20,43 @@ export const ProfileTabs = ({
 }) => {
     const [activeTab, setActiveTab] = useState("about");
     const conn = useConn();
+
+    let tab = null;
+    switch (activeTab) {
+        case "about":
+            tab = (
+                <ProfileAbout
+                    username={user.username}
+                    followers={user.numFollowers}
+                    following={user.numFollowing}
+                    description={user.bio}
+                    tags={aboutTags}
+                    website={user.website}
+                />
+            );
+            break;
+        case "questions":
+            tab = (
+                <ProfileAbout
+                    username={user.username}
+                    followers={user.numFollowers}
+                    following={user.numFollowing}
+                    description={user.bio}
+                    tags={aboutTags}
+                    website={user.website}
+                />
+            );
+            break;
+        case "answers":
+            tab = <ProfileScheduled user={user} />;
+            break;
+        case "likes":
+            tab = <ProfileAdmin user={user} />;
+            break;
+
+        default:
+            break;
+    }
     return (
         <>
             <div
@@ -72,25 +109,8 @@ export const ProfileTabs = ({
                 </button>
             </div>
 
-            <div>
-                <ProfileAbout
-                    className={activeTab !== "about" ? "hidden" : ""}
-                    username={user.username}
-                    followers={user.numFollowers}
-                    following={user.numFollowing}
-                    description={user.bio}
-                    tags={aboutTags}
-                    website={user.website}
-                />
-
-                {/* <ProfileScheduled
-                    user={user}
-                    className={activeTab !== "Scheduled" ? "hidden" : ""}
-                /> */}
-                <ProfileAdmin
-                    className={activeTab !== "likes" ? "hidden" : ""}
-                    user={user}
-                />
+            <div className="bg-white dark:bg-dark-800 my-2 rounded-lg md:mx-2">
+                {tab}
             </div>
         </>
     );

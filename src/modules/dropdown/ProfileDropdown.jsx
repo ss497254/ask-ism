@@ -20,7 +20,7 @@ import { useDarkMode } from "../../global-stores/useDarkMode";
 import { BaseOverlay } from "../../ui/components/BaseOverlay";
 import { SettingsIcon } from "../../ui/components/SettingsIcon";
 
-function Announcements({ size, className, children }) {
+function ProfileDropdown({ size, className, children }) {
     const { toggleDarkMode } = useDarkMode();
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [currentOverlay, setCurrentOverlay] = useState(null);
@@ -119,7 +119,7 @@ function Announcements({ size, className, children }) {
     );
 }
 
-export default Announcements;
+export default ProfileDropdown;
 
 {
     /* </div>
@@ -173,7 +173,7 @@ export default Announcements;
                     </ul>
                     <div className="font-semibold text-blue-700 py-2 px-4">
                         <Link
-                            to="/Announcements"
+                            to="/ProfileDropdown"
                             onClick={() => {
                                 setDropdownOpen(!dropdownOpen);
                             }}
