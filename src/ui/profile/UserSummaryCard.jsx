@@ -10,7 +10,7 @@ const regex = /(^\w+:|^)\/\//;
 export const Website = ({ website }) => {
     return (
         <a
-            className="text-accent mt-1 font-bold text-left break-all truncate whitespace-pre-wrap line-clamp-1 w-[90%]"
+            className="text-accent mt-1 font-bold text-left truncate whitespace-pre-wrap line-clamp-1 w-[90%]"
             href={website}
             target="_blank"
             rel="noreferrer"
@@ -40,11 +40,11 @@ export const UserSummaryCard = ({
                 <div className="flex mt-2">
                     <div className="flex flex-col ml-3">
                         <Link to="/profile">
-                            <span className="font-bold text-lg overflow-hidden break-all text-left">
+                            <span className="font-bold text-lg overflow-hidden text-left">
                                 {displayName}
                             </span>
                         </Link>
-                        <span className="text-left mb-1 break-all dark:text-gray-300">
+                        <span className="text-left text-[13px] mb-1 dark:text-gray-300">
                             @{username}
                         </span>
                         {staff && (
@@ -59,7 +59,7 @@ export const UserSummaryCard = ({
                     </div>
                 </div>
             </div>
-            <div className="flex mt-2 gap-2">
+            <div className="flex mt-2 gap-2 text-[13px]">
                 <div className="flex transition duration-200 ease-in-out hover:bg-gray-200 dark:hover:bg-gray-700 px-2 py-1 rounded-8">
                     <span className="font-bold">{questions}</span>
                     <span className="ml-1.5">{"Questions"}</span>
@@ -69,7 +69,7 @@ export const UserSummaryCard = ({
                     <span className="ml-1.5">{"Answers"}</span>
                 </div>
             </div>
-            <div className="my-1 break-all truncate whitespace-pre-wrap line-clamp-2">
+            <div className="my-1 truncate text-tiny whitespace-pre-wrap line-clamp-2">
                 {bio}
             </div>
             {website && <Website website={website} />}

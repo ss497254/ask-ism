@@ -17,7 +17,7 @@ export const Badge = ({
         <>
             <div
                 title={title}
-                className={`text-sm font-bold px-2.5 py-0.5 rounded ${badgeVariants[variant]} select-none ${className}`}
+                className={`text-xs font-bold px-2.5 py-0.5 rounded ${badgeVariants[variant]} select-none ${className}`}
                 style={{
                     minHeight: "20px",
                     width: "max-content",

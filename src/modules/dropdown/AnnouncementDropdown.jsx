@@ -47,8 +47,8 @@ function Announcements({ size, className }) {
             </button>
 
             <Transition
-                className="origin-top-right z-100 absolute top-full right-0 mr-1 w-24 bg-white dark:bg-dark-800 dark:text-cool-gray-400 border border-slate-400
-                dark:border-slate-800 rounded-lg shadow-xl overflow-hidden mt-1"
+                className="origin-top-right z-100 absolute top-full right-0 mr-1 w-24 bg-white dark:bg-dark-800 dark:text-cool-gray-400 outline outline-[1px] outline-slate-400
+                dark:outline-dark-600 rounded-lg shadow-xl overflow-hidden mt-1"
                 show={dropdownOpen}
                 enter="transition ease-out duration-200 transform"
                 enterStart="opacity-0 -translate-y-2"
@@ -62,13 +62,13 @@ function Announcements({ size, className }) {
                     onFocus={() => setDropdownOpen(true)}
                     onBlur={() => setDropdownOpen(false)}
                 >
-                    <div className="font-semibold dark:text-white uppercase py-2.5 px-4">
+                    <div className="font-semibold text-white bg-sky-500 dark:bg-blue-600 uppercase py-3 px-4">
                         Announcements
                     </div>
                     <ul>
                         <li className="border-t border-slate-200 dark:border-gray-700 last:border-b">
                             <Link
-                                className="block py-2 px-4 hover:bg-blue-100"
+                                className="block py-2 px-4 hover:bg-blue-100 dark:hover:bg-dark-700"
                                 to="#0"
                                 onClick={() => setDropdownOpen(!dropdownOpen)}
                             >
@@ -87,7 +87,7 @@ function Announcements({ size, className }) {
                         </li>
                         <li className="border-t border-slate-200 dark:border-gray-700 last:border-b">
                             <Link
-                                className="block py-2 px-4 hover:bg-blue-100"
+                                className="block py-2 px-4 hover:bg-blue-100 dark:hover:bg-dark-700"
                                 to="#0"
                                 onClick={() => setDropdownOpen(!dropdownOpen)}
                             >
@@ -106,7 +106,7 @@ function Announcements({ size, className }) {
                         </li>
                         <li className="border-t border-slate-200 dark:border-gray-700 last:border-b">
                             <Link
-                                className="block py-2 px-4 hover:bg-blue-100"
+                                className="block py-2 px-4 hover:bg-blue-100 dark:hover:bg-dark-700"
                                 to="#0"
                                 onClick={() => setDropdownOpen(!dropdownOpen)}
                             >
